@@ -7,17 +7,12 @@
         <header>
             <h1><a href="/">Nathan's Blog</a></h1>
         </header>
-
-        <article>
-            <time>published: 8.19.2022, 8:00</time>
-            <h2><a href="">My first post</a></h2>
-            <p>Here is my first blog post!</p>
-        </article>
-
-        <article>
-            <time>published: 8.19.2022, 12:00</time>
-            <h2><a href="">My second post</a></h2>
-            <p>I've written another post!</p>
-        </article>
+        {% for post in posts %}
+            <article>
+                <time>published: {{ post.published_date }}</time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}
     </body>
 </html>
